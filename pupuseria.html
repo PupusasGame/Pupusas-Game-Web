@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="js/readmycontract.js" type="text/javascript"></script>
+    <title>Pupusas Game ES |:| Game Developer |:| Blockchain & Cryptos</title>
+  </head>
+  <body>
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-warning shadow-lg rounded">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="index.html">Pupusas Game</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarText">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link" href="index.html/#about">About me</a>
+	        </li>
+	        <li class="nav-item dropdown">
+	          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	            Services
+	          </a>
+	          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	            <li><a class="dropdown-item" href="index.html/#gamedev">Game development</a></li>
+	            <li><a class="dropdown-item" href="index.html/#designer">Art & Animation 2D</a></li>
+	            <li><hr class="dropdown-divider"></li>
+	            <li><a class="dropdown-item" href="index.html/#crypto">Blockchain & Cryptocurrency</a></li>
+	            <li><a class="dropdown-item" href="index.html/#crypto">Solidity || Token technology</a></i></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <span class="navbar-text">
+	      	<a href="https://www.facebook.com/PupusasGameSV" class="btn " style="border: .5em"><i class="bi bi-facebook"></i></a>
+        	<a href="https://www.instagram.com/pupusasgame/" class="btn " type="button" style="border: .5em"><i class="bi bi-instagram"></i></a>
+        	<a href="https://twitter.com/PupusasG" class="btn " type="button" style="border: .5em"><i class="bi bi-twitter"></i></a>
+	       	<a href="https://bitcoin.org/es/" target="_blank" style="text-decoration: none;"><img src="img/bitcoin-icon.png" width="30" height="30" class="d-inline-block align-top"> I trust <strong>Bitcoin</strong></a> 
+	      </span>
+	    </div>
+	  </div>
+	</nav>
+
+	<span id="mydata"></span>
+  	<div class="text-center" style="width:50%; margin: auto; margin-top: 10%;">
+  		<button class="btn btn-success" onclick="Connect()">Conectar Metamask</button>
+  		<form class="m-2">
+  			<label>Cantidad de Pupusas a pedir</label>
+  			<input type="number" name="cantidad" id="Cantidad">
+  			<br>
+  			<label>Elegir Ingrediente</label>
+  			<select id="Ingrediente" class="form-select form-select-sm">
+  				<option value="0">Frijol con Queso</option>
+  				<option value="1">Queso con loroco</option>
+  				<option value="2">Revuelta</option>
+  			</select>
+  			<a class="btn btn-danger m-2" onclick="UpdatePupuseriaContract()">Hacer Pedido</a>
+  		</form>
+  		<a class="btn btn-dark border-secondary m-4" onclick="ReadDataFromPupuseriaContract()">Leer mis pedidos</a>
+  		<table class="table table-striped table-responsive">
+  		<thead style="font-weight: 500;">
+  			<tr>
+  				<td>Cantidad</td>
+  				<td>Ingrediente</td>
+  				<td>Precio</td>
+  			</tr>
+  		</thead>
+  		<tbody id="blockchain-data">
+  			
+  		</tbody>
+  	</table>
+  	</div>
+	
+	<footer class="bg-warning ">
+		<section
+    class="d-flex justify-content-center justify-content-lg-between p-2 text-dark">
+    <!-- Left -->
+	    <div class="me-5 d-none d-lg-block">
+	      <a href="https://www.facebook.com/PupusasGameSV" class="btn text-dark" style="border: .5em"><i class="bi bi-facebook"></i></a>
+        	<a href="https://www.instagram.com/pupusasgame/" class="btn text-dark" style="border: .5em"><i class="bi bi-instagram"></i></a>
+        	<a href="https://twitter.com/PupusasG" class="btn text-dark" type="button" style="border: .5em"><i class="bi bi-twitter"></i></a>
+	    </div>
+	    <!-- Left -->
+	    
+	    <!-- Right -->
+	    <div>
+	      <span>
+	      	<button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="bi bi-currency-bitcoin"></i> Crypto address</button>
+	      </span>
+	    </div>
+
+	    <div class="offcanvas offcanvas-end bg-dark text-warning" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  			<div class="offcanvas-header">
+	    		<h5 id="offcanvasTopLabel" ><strong>Crypto wallet accounts </strong></h5><br>
+	    		
+	    		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  			</div>
+	  		<div class="offcanvas-body">
+	  			<span><img src="img/bitcoin-icon.png" style="width:35px"> BTC</span>
+	    		<p>bc1qh0nhdtfy745568x6anxvuk6qmld60953mly9e5</p>
+	    		<span><img src="img/chivo-icon.jpg" style="width:35px"> Chivo Wallet</span>
+	    		<p>3NkZKBwRKp6n9RCUn94RKPUdAULR9KkSbi</p>
+	  		</div>
+			</div>
+	    <!-- Right -->
+  	</section>
+  	<section class="d-flex justify-content-center p-2 text-dark">
+  		<h5><strong>Education</strong></h5>
+	    <ul>
+	    	<h6><strong>Because, I love what I do</strong></h6>
+	    	<li>Graphic Designer Graduated / UTEC (Universidad Tecnológica de El Salvador)</li>
+	    	<li>Adobe Creative Suite certificate / Educación Creativa El Salvador</li>
+	    	<li>Advance Illustrator Creative Suite certificate / Universidad Don Bosco de El Salvador</li>
+	    	<li>Advance Photoshop Creative Suite certificate / Universidad Don Bosco de El Salvador</li>
+	    	<li>Graphic Designer certicated / ITCA FEPADE El Salvador</li>
+	    	<li>
+	    		<ol>
+	    			<li>Udemy: Máster en Programación de Videojuegos con Unity® 2021 y C# <a href="https://www.udemy.com/certificate/UC-WJTDWF4H/" >Certificate</a></li>
+						<li>Udemy: The Unity C# Survival Guide <a href="https://www.udemy.com/certificate/UC-7L9NS8Z8/">Certificate</a></li>
+						<li>Udemy: The Ultimate Guide to 2D Mobile Game Development with Unity <a href="https://www.udemy.com/certificate/UC-44ddab59-287a-455f-bc5a-92c4c5e7c242/">Certificate</a></li>
+						<li>Udemy: The Ultimate Guide to Game Development with Unity (Official) <a href="https://www.udemy.com/certificate/UC-29e201ac-3456-468e-88c6-7c9d6dd769fb/">Certificate</a> </li>
+						<li>Udemy: C# Basics for Beginners: Learn C# Fundamentals by Coding <a href="https://www.udemy.com/certificate/UC-c2363fa0-fc27-4875-833e-4f6aa9a9d25c/">Certificate</a> </li>
+						<li>Udemy: C# Intermediate: Classes, Interfaces and OOP <a href="https://www.udemy.com/certificate/UC-5c2fb7c7-f7d1-4881-9ee0-6e465e419e20/">Certificate</a> </li>
+						<li>Udemy: Smart Contracts y Blockchain con Solidity de la A a la Z <a href="https://www.udemy.com/certificate/UC-fddd8791-746c-4e90-a268-72ab817e8007/">Certificate</a></li>
+					</ol>
+	    	</li>
+			</ul>
+			
+  	</section>
+		
+	  <div class="text-center p-2 text-dark">
+    © 2022 Copyright: Pupusas Game El Salvador
+  	</div>
+	</footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  </body>
+</html>

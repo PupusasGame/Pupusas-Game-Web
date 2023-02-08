@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--Enlace Bootstrap--><!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+	<!--Enlaces para google fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="css/fontawesome.min.css" href="stylesheet">
+	<link rel="stylesheet" type="css/all.min.css" href="stylesheet">
+
+	<!--Enlace a estilo de sitio-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>CryptoIbero Token</title>
+</head>
+<body class="bg-gradient">
+	
+<!-- //-----Navegador de enlaces------//-->
+		<header>
+			<nav class="navbar navbar-expand-lg">
+			  <div class="container-fluid">
+			    <a class="navbar-brand d-flex justify-content-end" href="index.html"><img src="img/logo.png"></a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			      	<span class="navbar-toggler-icon">
+			      	<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="limegreen" class="bi bi-list" viewBox="0 0 16 16">
+  						<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+					</svg>
+					</span> 
+			    </button>
+			    <div class="collapse navbar-collapse" id="navbarNav">
+			      <ul class="navbar-nav">
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">$2,579</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">Portfolio</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">Mining</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="#">Connect</a>
+			        </li>
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</header>
+<!-- //-----------//-->
+<!-- //-----------//-->
+		<main>
+			<div >
+				
+				<h1>Swap Cryptos</h1>
+				<br />
+				<h3>connect your wallet</h3>
+			</div>
+			<div class="exchangeBox container">
+
+				<form>
+					<a class="btn btn-secondary btn-connect" onclick="ShowBalance()" id="btn-balance"> Connect Wallet </a>
+					<label>Portfolio</label>
+					<select class="form-select" multiple aria-label="multiple select example" id="balance">
+					</select>
+					<span id="notification"></span>
+					<br>
+					<div>
+						<em id="coin-name-up"></em><br/>
+						<button id ="img-swap-up" type="button" class="btn" data-toggle="modal" data-target="#SwapUP" data-bs-toggle="tooltip" data-bs-placement="top" title="choose token">
+							<img  src="Bitcoin-BTC-icon.png" width="50px" height="50px">
+						</button>
+						<input type="number" name="Token" class="exchangeBox-input" id="inputCoinUp">
+						<a class="btn btn-outline-success" onclick="MaxAmount()">MAX</a><p id="coin-info-up"></p><br>
+						<a class="btn btn-outline-success" onclick="ExchangeCoinsPlace()"><span> &#8593; &#8595; </span></a>
+					</div>
+
+					<div>
+						<em id="coin-name-down"></em><br/>
+						<button id ="img-swap-down" type="button" class="btn" data-toggle="modal" data-target="#SwapDown" data-bs-toggle="tooltip" data-bs-placement="top" title="choose token">
+							<img  src="eth.jpg" width="50px" height="50px">
+						</button>
+						<input type="number" name="Token" class="exchangeBox-input" id="inputCoinDown">
+						<p id="coin-info-down"></p>
+					</div>	
+					</br>
+					<a class="btn btn-success" onclick="SwapTokens()" ><p>Swap them</p></a>
+				</form>
+			</div>
+		</main>
+		
+		<!--modals starts-->
+		<div class="modal fade" id="SwapUP" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">Select a token</h5>
+		        <small>click on crypto image</small>
+		        <button type="button" class="close btn btn-success" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<ul id="modal_one">
+		        		
+		        	</ul>
+		        </form>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="SwapDown" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	
+		        <h5 class="modal-title" id="exampleModalLongTitle">Select a token</h5>
+		        <small>click on crypto image</small>
+		        <button type="button" class="close btn btn-success" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		        	<ul id="modal_two">
+		        		
+		        	</ul>
+		        </form>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+		<!--modal ends-->
+		<footer>
+			
+		</footer>
+	<script src="js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v6.0.0/js/solid.js" integrity="sha384-IWq2srnodX6Z+US+NFdwALHXDvdogKkBx7sUMzfypASSeqsNzF+gAS48WnkPcYbf" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v6.0.0/js/fontawesome.js" integrity="sha384-pULjvYk4ZbCHxvgkOUhY3s6wbSkRp/9WHqh+NdM+FkmDQsdJeg2XyOHSEQ0AZlr4" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</body>
+</html>
